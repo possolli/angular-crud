@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 border rounded mt-5">
+        <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Message</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let message of this.messages">
+                  <th>{{ message.fullname }}</th>
+                  <td>{{ message.email }}</td>
+                  <td>{{ message.subject }}</td>
+                  <td>{{ message.message }}</td>
+                  <button (click)="deleteMessage(message.id)">Delete</button>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

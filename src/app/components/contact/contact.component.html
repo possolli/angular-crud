@@ -1,0 +1,58 @@
+<div *ngIf="isLoading; else elseForm">
+    <app-loader :title="loadingTitle"/>
+</div>
+<ng-template #elseForm>
+    <div class="container">
+      <div style="height: 90vh;" class="row justify-content-center align-items-center">
+          <div class="row w-100 justify-content-center">
+              <form (ngSubmit)="sendMessage()" class="col-lg-4 py-5 px-5 bg-semidark rounded-l">
+                  <h3 class="text-light">Write Us</h3>
+                  <div class="mt-5">
+                      <div class="input-container mb-5">
+                          <label for="Full Name">Full Name</label>
+                          <input [(ngModel)]="fullname" name="fullname" type="text" class="custom-input">
+                          <span *ngIf="errors.fullname" class="text-danger">{{ errors.fullname }}</span>
+                      </div>
+                      <div class="input-container mb-5">
+                          <label for="E-mail">E-mail</label>
+                          <input [(ngModel)]="email" name="email" type="text" class="custom-input">
+                          <span *ngIf="errors.email" class="text-danger">{{ errors.email }}</span>
+                      </div>
+                      <div class="input-container mb-5">
+                          <label for="Subject">Subject</label>
+                          <input [(ngModel)]="subject" name="subject" type="text" class="custom-input">
+                          <span *ngIf="errors.subject" class="text-danger">{{ errors.subject }}</span>
+                      </div>
+                      <div class="input-container">
+                          <label for="Message">Message</label>
+                          <textarea [(ngModel)]="message" name="message" id="message" rows="3"></textarea>
+                          <span *ngIf="errors.message" class="text-danger">{{ errors.message }}</span>
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-1 mt-4">Send Message</button>
+              </form>
+              <div class="col-lg-4 p-4 bg-dark rounded-r py-5 px-5">
+                  <h5 class="text-light">Contact Information</h5>
+                  <p class="c-74">We're open for any suggestion or just to have a chat</p>
+                  <div class="d-flex c-icons mb-3 align-items-center">
+                      <div class="bg-semidark"><i class="bi bi-geo-alt-fill"></i></div>
+                      <p class="text-light m-0"><strong>Address:</strong> 198 West 21th Street, Suite 721
+                        New York NY 10016</p>
+                  </div>
+                  <div class="d-flex c-icons mb-3 align-items-center">
+                      <div class="bg-semidark"><i class="bi bi-telephone-fill"></i></div>
+                      <p class="text-light m-0"><strong>Phone:</strong> + 1235 2355 98</p>
+                  </div>
+                  <div class="d-flex c-icons mb-3 align-items-center">
+                      <div class="bg-semidark"><i class="bi bi-envelope-fill"></i></div>
+                      <p class="text-light m-0"><strong>E-mail:</strong> example&#64;gmail.com</p>
+                  </div>
+                  <div class="d-flex c-icons mb-3 align-items-center">
+                      <div class="bg-semidark"><i class="bi bi-globe2"></i></div>
+                      <p class="text-light m-0"><strong>Web Site:</strong> example.com</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</ng-template>
